@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Squares</title>
+    <style>
+
+    html, body{
+      background-color: lightgrey;
+    }
+
+    #contain{
+      width: 100%;
+      height: 600px;
+    }
+
+
+
+    </style>
+  </head>
+  <body>
+
+
+    <div id="contain"></div>
+
+    <script>
+
+    var contain = document.getElementById('contain');
+
+    var timesPressed = [];
+
+    var starter = function() {
+      var words = document.createElement('h1');
+      var theWords = document.createTextNode("Press the Button to start, click as many boxes in 30 seconds as you can");
+      words.appendChild(theWords);
+      contain.appendChild(words);
+    }
+
+    var squ = function() {
+      var make = document.createElement('div');
+      var r1 = Math.floor(Math.random() * 255);
+      var r2 = Math.floor(Math.random() * 255);
+      var r3 = Math.floor(Math.random() * 255);
+      var r4 = Math.floor(Math.random() * 86);
+      var r5 = Math.floor(Math.random() * 560);
+      make.style.position="absolute";
+      make.style.border="solid 2px black";
+      make.style.width="200px";
+      make.style.height="200px";
+      make.style.backgroundColor="rgb("+r1+","+r2+","+r3+")";
+      make.id="make";
+      make.style.left=r4+"%";
+      make.style.top=r5+"px";
+      make.style.cursor="pointer";
+      contain.appendChild(make);
+      make.onclick = function(){
+        make.style.display="none";
+        timesPressed.push(1);
+        squ();
+      }
+      console.log(r1);
+    }
+
+
+    //squ();
+
+    starter();
+
+    </script>
+  </body>
+</html>
